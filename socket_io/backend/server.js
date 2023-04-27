@@ -6,7 +6,10 @@ const { Server } = require('socket.io')
 // creating a http server then using it to create the socket.io server
 const httpServer = createServer(app);
 const ioServer = new Server(httpServer, {
-
+    cors: {
+        origin: "*"
+    },
+    // transports: ["websocket"]
 })
 
 // once a client is connected
