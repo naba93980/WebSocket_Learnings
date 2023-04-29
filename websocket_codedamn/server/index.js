@@ -1,4 +1,4 @@
-const { WebSocketServer, WebSocket } = require('ws')
+const { WebSocketServer } = require('ws')
 
 const wss = new WebSocketServer({
     port: 8080,
@@ -7,8 +7,12 @@ const wss = new WebSocketServer({
 })
 
 wss.on('connection',(ws)=>{
-    console.log(WebSocket );
+    ws.send("hey whasup");
+    ws.on('message',(data)=>{
+        ws.send(data.toString())
+    })
 })
+
 
 
 
